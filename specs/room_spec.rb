@@ -44,10 +44,24 @@ class RoomTest < MiniTest::Test
     assert_equal(0, @room1.guest_list.count())
   end
 
-  # def test_entry_fee_paid
-  #   @room1.add_guest(@guest1)
-  #   assert_equal(6.5, @guest1.wallet())
+  # This is a duplicate test - also in guest_spec
+  # def test_add_guest_to_room__favourite_tune
+  #   @room1.add_to_playlist(@song1)
+  #   @room1.add_to_playlist(@song3)
+  #   @room1.add_to_playlist(@song2)
+  #   @room1.add_guest(@guest3)
+  #   assert_equal("Hey! Hey! TUNE!", @guest3.favourite_song_on_playlist(@room1.playlist))
   # end
+
+  def test_entry_fee_paid
+    @room1.add_guest(@guest1)
+    assert_equal(6.5, @guest1.wallet())
+  end
+
+  def test_fee_received__entry_fee
+    @room1.add_guest(@guest1)
+    assert_equal(53.5, @room1.till_amount())
+  end
 
   def test_remove_guest_from_room
     @room1.add_guest(@guest1)

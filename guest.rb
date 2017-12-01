@@ -20,4 +20,11 @@ class Guest
     @wallet -= fee
   end
 
+  def favourite_song_on_playlist(playlist)
+    if playlist.any? {|song| song.title == @favourite_song}
+      return "Hey! Hey! TUNE!"
+    end
+    #p playlist
+  end
+
 end

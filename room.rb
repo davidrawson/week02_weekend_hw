@@ -8,6 +8,7 @@ class Room
     @guest_list = []
     @playlist = []
     @entry_fee = entry_fee
+    @till_amount = 50.00
   end
 
   def add_guest(guest)
@@ -15,6 +16,8 @@ class Room
     return if guest.sufficient_money(@entry_fee) == false
     @guest_list.push(guest)
     guest.remove_fee(@entry_fee)
+    @till_amount += @entry_fee
+    guest.favourite_song_on_playlist(@playlist)
   end
 
   def remove_guest(guest)
@@ -31,6 +34,10 @@ class Room
 
   def add_to_playlist(song)
     @playlist.push(song)
+  end
+
+  def till_amount
+    return @till_amount
   end
 
 end
