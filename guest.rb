@@ -1,18 +1,23 @@
-equire("minitest/autorun")
-require_relative("../guest")
+class Guest
 
-class GuestTest < MiniTest::Test
+  attr_reader :name, :wallet, :favourite_song
 
-  def setup
-    @guest = Guest.new("Jarrod", 10.0, 28, 0)
+  def initialize(name, wallet, favourite_song)
+    @name = name
+    @wallet = wallet
+    @favourite_song = favourite_song
   end
 
-  def test_guest_has_name
-    assert_equal("Jarrod", @guest.name())
+  def sufficient_money(fee)
+    if fee > @wallet
+      return false
+    else
+      return true
+    end
   end
 
-  def test_guest_has_money
-    assert_equal(10.0, @guest.wallet())
+  def remove_fee(fee)
+    @wallet -= fee
   end
 
 end
