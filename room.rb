@@ -1,6 +1,6 @@
 class Room
 
-  attr_reader :name, :capacity, :guest_list , :playlist, :entry_fee
+  attr_reader :name, :capacity, :guest_list , :playlist, :entry_fee, :till_amount
 
   def initialize(name, capacity, entry_fee)
     @name = name
@@ -29,15 +29,11 @@ class Room
       return true
     else
       return false
-    end   # REFACTOR REFACTOR
+    end
   end
 
   def add_to_playlist(song)
     @playlist.push(song)
-  end
-
-  def till_amount
-    return @till_amount
   end
 
 end

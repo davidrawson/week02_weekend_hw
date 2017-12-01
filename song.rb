@@ -1,10 +1,11 @@
 class Song
 
-  attr_reader :title, :artist
+  attr_reader :title, :artist, :lyric
 
-  def initialize(title, artist)
+  def initialize(title, artist, lyric)
     @title = title
     @artist = artist
+    @lyric = lyric
   end
 
 end

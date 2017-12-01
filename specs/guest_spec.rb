@@ -9,8 +9,8 @@ class GuestTest < MiniTest::Test
 
   def setup
     @guest1 = Guest.new("Yoshimi", 10.0, "Yoshimi Battles The Pink Robots Part.1")
-    @song1 = Song.new("Yoshimi Battles The Pink Robots Part.1", "The Flaming Lips")
-    @song2 = Song.new("Denis", "Blondie")
+    @song1 = Song.new("Yoshimi Battles The Pink Robots Part.1", "The Flaming Lips", "She's a black belt in karate. Hey! Hey!")
+    @song2 = Song.new("Denis", "Blondie", "Denis Denis, avec tes yeux si bleux")
     @room1 = Room.new("The Green Room", 3, 3.50)
   end
 
@@ -50,4 +50,10 @@ class GuestTest < MiniTest::Test
     assert_equal(6.5, @guest1.wallet())
   end
 
+  # If a guest sings a song they get a drink token
+  # entitling them to one half price drink.
+  def test_sings_a_song
+    assert_equal("Denis Denis, avec tes yeux si bleux", @guest1.sings_a_song(@song2))
+    assert_equal(1, @guest1.drink_tokens)
+  end
 end

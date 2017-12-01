@@ -12,9 +12,9 @@ class RoomTest < MiniTest::Test
     @guest2 = Guest.new("Elvis Jones", 3.0, "Suspicious Minds")
     @guest3 = Guest.new("Denis Taylor", 100.0, "Denis")
     @guest4 = Guest.new("XxxxXxxx", 50.0, "Songsongsong")
-    @song1 = Song.new("Yoshimi Battles The Pink Robots Part.1", "The Flaming Lips")
-    @song2 = Song.new("Denis", "Blondie")
-    @song3 = Song.new("Suspicious Minds", "Elvis Presley")
+    @song1 = Song.new("Yoshimi Battles The Pink Robots Part.1", "The Flaming Lips", "She's a black belt in karate. Hey! Hey!")
+    @song2 = Song.new("Denis", "Blondie", "Denis Denis, avec tes yeux si bleux")
+    @song3 = Song.new("Suspicious Minds", "Elvis Presley", "Because I love you too much, baby")
 
   end
 
@@ -60,7 +60,7 @@ class RoomTest < MiniTest::Test
 
   def test_fee_received__entry_fee
     @room1.add_guest(@guest1)
-    assert_equal(53.5, @room1.till_amount())
+    assert_equal(53.5, @room1.till_amount)
   end
 
   def test_remove_guest_from_room
