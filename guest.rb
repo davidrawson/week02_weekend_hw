@@ -10,12 +10,9 @@ class Guest
     @drink_tokens = 0
   end
 
-  def sufficient_money(fee)
-    if fee > @wallet
-      return false
-    else
-      return true
-    end
+  def sufficient_money?(fee)
+    return false if fee > @wallet
+    return true if fee <= @wallet
   end
 
   def remove_fee(fee)
@@ -26,7 +23,6 @@ class Guest
     if playlist.any? {|song| song.title == @favourite_song}
       return "Hey! Hey! TUNE!"
     end
-    #p playlist
   end
 
   def sings_a_song(song)

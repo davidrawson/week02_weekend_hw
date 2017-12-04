@@ -18,7 +18,7 @@ class BarTest < MiniTest::Test
     assert_equal(55.0, @bar.bar_till)
   end
 
-  def test_buy_drink__with_token
+  def test_buy_drinks__with_one_token
     @guest1.sings_a_song(@song3)
     @bar.buy_drink(@guest1)
     @bar.buy_drink(@guest1)

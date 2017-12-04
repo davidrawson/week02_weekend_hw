@@ -23,15 +23,15 @@ class GuestTest < MiniTest::Test
   end
 
   def test_guest_sufficient_money__enough_money
-    assert_equal(true, @guest1.sufficient_money(9.99))
+    assert_equal(true, @guest1.sufficient_money?(9.99))
   end
 
   def test_guest_sufficient_money__enough_money
-    assert_equal(true, @guest1.sufficient_money(10.0))
+    assert_equal(true, @guest1.sufficient_money?(10.0))
   end
 
   def test_guest_sufficient_money__not_enough_money
-    assert_equal(false, @guest1.sufficient_money(10.01))
+    assert_equal(false, @guest1.sufficient_money?(10.01))
   end
 
   def test_has_favourite_song

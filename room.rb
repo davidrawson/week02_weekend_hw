@@ -13,7 +13,7 @@ class Room
 
   def add_guest(guest)
     return if is_full?
-    return if guest.sufficient_money(@entry_fee) == false
+    return if guest.sufficient_money?(@entry_fee) == false
     @guest_list.push(guest)
     guest.remove_fee(@entry_fee)
     @till_amount += @entry_fee
@@ -25,11 +25,8 @@ class Room
   end
 
   def is_full?()
-    if @guest_list.count >= @capacity
-      return true
-    else
-      return false
-    end
+    return true if @guest_list.count >= @capacity
+    return false if @guest_list.count < @capacity
   end
 
   def add_to_playlist(song)
